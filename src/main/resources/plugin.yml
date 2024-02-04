@@ -1,0 +1,9 @@
+name: BetterServer
+version: '${project.version}'
+main: com.wildmagicianshowroom.mc.betterserver.BetterServer
+api-version: '1.20'
+prefix: BtrSrv
+load: STARTUP
+authors: [Iggoroi, Wildmagician]
+description: Custom plugin for mc.wildmagicianshowroom.com
+website: mc.wildmagicianshowroom.com
