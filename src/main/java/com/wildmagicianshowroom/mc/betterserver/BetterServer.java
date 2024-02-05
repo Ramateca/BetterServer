@@ -1,6 +1,7 @@
 package com.wildmagicianshowroom.mc.betterserver;
 
 import com.wildmagicianshowroom.mc.betterserver.commands.*;
+import com.wildmagicianshowroom.mc.betterserver.events.HarcoreLite;
 import com.wildmagicianshowroom.mc.betterserver.permissions.Permissions;
 import com.wildmagicianshowroom.mc.betterserver.tabcompletion.ModeChangeCompletion;
 import com.wildmagicianshowroom.mc.betterserver.tabcompletion.PromoteCompletion;
@@ -31,6 +32,7 @@ public final class BetterServer extends JavaPlugin {
     getCommand("adventure").setTabCompleter(new ModeChangeCompletion());
     getCommand("promote").setExecutor(new Promote());
     getCommand("promote").setTabCompleter(new PromoteCompletion());
+    Bukkit.getServer().getPluginManager().registerEvents(new HarcoreLite(),this);
   }
 
   @Override
