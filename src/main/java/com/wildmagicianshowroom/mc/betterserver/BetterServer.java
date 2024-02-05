@@ -1,6 +1,7 @@
 package com.wildmagicianshowroom.mc.betterserver;
 
 import com.wildmagicianshowroom.mc.betterserver.commands.*;
+import com.wildmagicianshowroom.mc.betterserver.gamemodes.CusatomGameModes;
 import com.wildmagicianshowroom.mc.betterserver.events.HarcoreLite;
 import com.wildmagicianshowroom.mc.betterserver.permissions.Permissions;
 import com.wildmagicianshowroom.mc.betterserver.tabcompletion.ModeChangeCompletion;
@@ -19,6 +20,8 @@ public final class BetterServer extends JavaPlugin {
   public void onEnable() {
     this.isEnabled = true;
     this.permissionsList = Permissions.permissionsList;
+
+
     for (Permission perm : this.permissionsList) {
       if (perm != null) Bukkit.getServer().getPluginManager().addPermission(perm);
     }
