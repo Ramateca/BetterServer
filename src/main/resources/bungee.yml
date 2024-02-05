@@ -1,0 +1,9 @@
+name: BetterServer
+version: '${project.version}'
+main: com.wildmagicianshowroom.mc.betterserver.BetterServerBC
+author: Iggoroi, Wildmagician
+description: Custom plugin for mc.wildmagicianshowroom.com
+commands:
+  lobby:
+    usage: /lobby
+    description: Return to the lobby.
