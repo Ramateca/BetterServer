@@ -14,22 +14,30 @@ commands:
     permission-message: You don't have the knowledge to heal yourself.
     description: Heal yourself.
   survival:
-    usage: /survival
+    usage: /survival <player>
     permission: betterserver.modechange.survival
     permission-message: Cannot change mode to survival.
     description: Change game mode to survival.
   adventure:
-    usage: /adventure
+    usage: /adventure <player>
     permission: betterserver.modechange.adventure
     permission-message: Cannot change mode to adventure.
     description: Change game mode to adventure.
   spectator:
-    usage: /spectator
+    usage: /spectator <player>
     permission: betterserver.modechange.spectator
     permission-message: Cannot change mode to spectator.
     description: Change game mode to spectator.
   promote:
-    usage: /promote <group> <player>
+    usage: /promote [group] [player]
     permission: betterserver.promote
     permission-message: You are not a promoter.
     description: Promote a player to the specified group.
+  reborn:
+    usage: /reborn <player>
+    permission: betterserver.reborn
+    permission-message: tanto non si vede.
+    description: Reborn.
+  eunveicolo:
+    usage: /eunveicolo
+    description: ho racione.
