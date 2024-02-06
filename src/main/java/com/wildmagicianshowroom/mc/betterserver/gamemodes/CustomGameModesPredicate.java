@@ -1,6 +1,7 @@
 package com.wildmagicianshowroom.mc.betterserver.gamemodes;
 
 import com.wildmagicianshowroom.mc.betterserver.events.ChatMorta;
+import com.wildmagicianshowroom.mc.betterserver.events.PrigioneBanditi;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;
@@ -11,6 +12,11 @@ public enum CustomGameModesPredicate {
         player.setGameMode(customGameMode.getGameMode());
         ChatMorta.addMorto(player);
         player.sendMessage(ChatMorta.getMorti().toString());
+        return true;
+    }),
+    BANDITISMO(CustomGameMode.BANDITO, (customGameMode, player) -> {
+        player.setGameMode(customGameMode.getGameMode());
+        PrigioneBanditi.addBandito(player);
         return true;
     });
     private final CustomGameMode gameMode;

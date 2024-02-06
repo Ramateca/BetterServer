@@ -2,15 +2,10 @@ package com.wildmagicianshowroom.mc.betterserver;
 
 import com.wildmagicianshowroom.mc.betterserver.commands.*;
 import com.wildmagicianshowroom.mc.betterserver.events.*;
-import com.wildmagicianshowroom.mc.betterserver.items.RebornTotem;
 import com.wildmagicianshowroom.mc.betterserver.permissions.Permissions;
 import com.wildmagicianshowroom.mc.betterserver.tabcompletion.*;
 import java.util.List;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -39,7 +34,7 @@ public final class BetterServer extends JavaPlugin {
     getCommand("promote").setExecutor(new Promote());
     getCommand("promote").setTabCompleter(new PromoteCompletion());
     getCommand("reborn").setExecutor(new Reborn());
-    Bukkit.getServer().getPluginManager().registerEvents(new HarcoreLite(), this);
+    Bukkit.getServer().getPluginManager().registerEvents(new HardcoreLite(), this);
     Bukkit.getServer().getPluginManager().registerEvents(new ChatMorta(), this);
   }
 

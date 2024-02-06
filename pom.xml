@@ -6,7 +6,7 @@
 
   <groupId>com.wildmagicianshowroom.mc</groupId>
   <artifactId>better-server</artifactId>
-  <version>1.0</version>
+  <version>1.6.2</version>
   <packaging>jar</packaging>
 
   <name>BetterServer</name>
