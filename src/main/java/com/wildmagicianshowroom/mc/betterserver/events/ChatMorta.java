@@ -28,4 +28,8 @@ public class ChatMorta implements Listener {
   public static boolean addMorto(Player player) {
     return listaMorti.add(player);
   }
+
+  public static boolean removeMorto(Player player) {
+    return listaMorti.remove(player);
+  }
 }
