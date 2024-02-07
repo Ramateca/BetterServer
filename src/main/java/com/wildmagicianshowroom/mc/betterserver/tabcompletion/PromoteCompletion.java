@@ -23,9 +23,9 @@ public class PromoteCompletion implements TabCompleter {
       if (provider != null) {
         LuckPerms luckPerms = provider.getProvider();
         Set<Group> loadedGroups = luckPerms.getGroupManager().getLoadedGroups();
-        List<String> groupList =
-            loadedGroups.stream().map(Group::getDisplayName).collect(Collectors.toList());
-        return groupList;
+        List<String> groupNamesList = loadedGroups.stream().map(Group::getDisplayName).collect(Collectors.toList());
+        groupNamesList.remove("Morto");
+        return groupNamesList;
       }
     }
     if (args.length == 2) {

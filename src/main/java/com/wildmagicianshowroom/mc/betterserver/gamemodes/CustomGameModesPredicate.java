@@ -2,36 +2,42 @@ package com.wildmagicianshowroom.mc.betterserver.gamemodes;
 
 import com.wildmagicianshowroom.mc.betterserver.events.ChatMorta;
 import com.wildmagicianshowroom.mc.betterserver.events.PrigioneBanditi;
+import java.util.function.BiPredicate;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
-import java.util.function.BiPredicate;
+import static com.wildmagicianshowroom.mc.betterserver.utils.functions.SetPrimaryGroup.setPrimaryGroup;
 
 public enum CustomGameModesPredicate {
-    MORTE(CustomGameMode.MORTO, (customGameMode, player) -> {
+  MORTE(
+      CustomGameMode.MORTO,
+      (customGameMode, player) -> {
         player.setGameMode(customGameMode.getGameMode());
         ChatMorta.addMorto(player);
-        player.sendMessage(ChatMorta.getMorti().toString());
-        return true;
-    }),
-    BANDITISMO(CustomGameMode.BANDITO, (customGameMode, player) -> {
+        return setPrimaryGroup(player, "Morto");
+      }),
+  BANDITISMO(
+      CustomGameMode.BANDITO,
+      (customGameMode, player) -> {
         player.setGameMode(customGameMode.getGameMode());
         PrigioneBanditi.addBandito(player);
-        return true;
-    });
-    private final CustomGameMode gameMode;
-    private final BiPredicate<CustomGameMode, Player> predicate;
+        return setPrimaryGroup(player, "Bandito");
+      });
 
-    CustomGameModesPredicate(CustomGameMode gameMode, BiPredicate<CustomGameMode, Player> predicate) {
-        this.gameMode = gameMode;
-        this.predicate = predicate;
-    }
+  private final CustomGameMode gameMode;
+  private final BiPredicate<CustomGameMode, Player> predicate;
 
-    public CustomGameMode getGameMode() {
-        return gameMode;
-    }
+  CustomGameModesPredicate(CustomGameMode gameMode, BiPredicate<CustomGameMode, Player> predicate) {
+    this.gameMode = gameMode;
+    this.predicate = predicate;
+  }
+  ;
 
-    public boolean test(Player player) {
-        return predicate.test(gameMode, player);
-    }
+
+  public CustomGameMode getGameMode() {
+    return gameMode;
+  }
+
+  public boolean test(Player player) {
+    return predicate.test(gameMode, player);
+  }
 }

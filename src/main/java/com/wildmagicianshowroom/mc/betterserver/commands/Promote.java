@@ -19,6 +19,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.jetbrains.annotations.NotNull;
 
+import static com.wildmagicianshowroom.mc.betterserver.utils.functions.SetPrimaryGroup.setPrimaryGroup;
+
 public class Promote implements CommandExecutor {
   @Override
   public boolean onCommand(
@@ -45,7 +47,8 @@ public class Promote implements CommandExecutor {
     Set<Group> loadedGroups = luckPerms.getGroupManager().getLoadedGroups();
     final List<String> groupList =
         loadedGroups.stream().map(Group::getDisplayName).collect(Collectors.toList());
-    if (!(groupList.contains(args[0]))) {
+    groupList.remove("Morto");
+    if (!(groupList.contains(gruopName))) {
       sender.sendMessage("§cIl gruppo non esiste");
       return true;
     }
@@ -59,32 +62,10 @@ public class Promote implements CommandExecutor {
       return true;
     }
     Group nextGroup = nextGroupOptional.get();
-    luckPerms
-        .getUserManager()
-        .modifyUser(
-            user.getUniqueId(),
-            u -> {
-              DataMutateResult remove =
-                  u.data()
-                      .remove(
-                          u.getNodes().stream()
-                              .filter(
-                                  node ->
-                                      node.getKey().contains("group.".concat(u.getPrimaryGroup())))
-                              .findFirst()
-                              .get());
-
-              DataMutateResult add =
-                  u.data()
-                      .add(Node.builder("group.".concat(nextGroup.getName())).value(true).build());
-              if (remove.wasSuccessful() && add.wasSuccessful()) {
-                sender.sendMessage(
-                    String.format(
-                        "§aHai reso %s un %s", u.getUsername(), nextGroup.getDisplayName()));
-                target.sendMessage(
-                    String.format("§aSei Diventato un %s", nextGroup.getDisplayName()));
-              } else sender.sendMessage("§cQualcosa è andato storto");
-            });
+    if (!setPrimaryGroup(target, nextGroup.getDisplayName())){
+      sender.sendMessage("§cQualcosa è andato storto");
+      return true;
+    };
     return true;
   }
 }

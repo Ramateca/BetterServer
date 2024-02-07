@@ -21,7 +21,6 @@ public class Reborn implements CommandExecutor {
         if (maxHealth == null) {
             sender.sendMessage("§c§0Una trama non ancora risolta ti lega a questo mondo");
             return true;
-
         }
         maxHealth.setBaseValue(20.0D);
         ChatMorta.removeMorto(((Player) sender).getPlayer());

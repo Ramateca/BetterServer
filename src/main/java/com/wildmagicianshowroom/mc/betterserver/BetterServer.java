@@ -2,6 +2,7 @@ package com.wildmagicianshowroom.mc.betterserver;
 
 import com.wildmagicianshowroom.mc.betterserver.commands.*;
 import com.wildmagicianshowroom.mc.betterserver.events.*;
+import com.wildmagicianshowroom.mc.betterserver.gui.TabList;
 import com.wildmagicianshowroom.mc.betterserver.permissions.Permissions;
 import com.wildmagicianshowroom.mc.betterserver.tabcompletion.*;
 import java.util.List;
@@ -24,7 +25,6 @@ public final class BetterServer extends JavaPlugin {
     }
 
     getCommand("heal").setExecutor(new Heal());
-    getCommand("eunveicolo").setExecutor(new Eunveicolo());
     getCommand("survival").setExecutor(new Survival());
     getCommand("survival").setTabCompleter(new ModeChangeCompletion());
     getCommand("spectator").setExecutor(new Spectator());
@@ -34,8 +34,10 @@ public final class BetterServer extends JavaPlugin {
     getCommand("promote").setExecutor(new Promote());
     getCommand("promote").setTabCompleter(new PromoteCompletion());
     getCommand("reborn").setExecutor(new Reborn());
+    Bukkit.getServer().getPluginManager().registerEvents(new TabList(), this);
     Bukkit.getServer().getPluginManager().registerEvents(new HardcoreLite(), this);
     Bukkit.getServer().getPluginManager().registerEvents(new ChatMorta(), this);
+    Bukkit.getServer().getPluginManager().registerEvents(new PrigioneBanditi(), this);
   }
 
   @Override

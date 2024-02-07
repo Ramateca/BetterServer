@@ -23,20 +23,10 @@ public class Permissions {
       new Permission("betterserver.modechange.adventure", permissionDefault);
   public static final Permission SPECTATOR =
       new Permission("betterserver.modechange.spectator", permissionDefault);
-  public static final Permission CITIZEN =
-      new Permission("betterserver.modechange.citizen", permissionDefault);
   public static final Permission REBORN = new Permission("betterserver.reborn", permissionDefault);
   public static final List<Permission> permissionsList =
       Arrays.asList(
-          HEAL,
-          MODE_CHANGE,
-          SURVIVAL,
-          ADVENTURE,
-          SPECTATOR,
-          CITIZEN,
-          PROMOTE,
-          REBORN,
-          MODE_CHANGE_OTHERS);
+          HEAL, MODE_CHANGE, SURVIVAL, ADVENTURE, SPECTATOR, PROMOTE, REBORN, MODE_CHANGE_OTHERS);
 
   private static Permission parentPermission(String parent, List<String> children) {
     Map<String, Boolean> childrenMap =

@@ -25,7 +25,9 @@ public class HardcoreLite implements Listener {
       player.sendMessage("§c§Hai perso vigore");
       return;
     }
-    CustomGameModeHandler.setGameMode(CustomGameMode.MORTO, player);
-    maxHealth.setBaseValue(value - 2);
+    if (value != 0) {
+      maxHealth.setBaseValue(0.0D);
+      CustomGameModeHandler.setGameMode(CustomGameMode.MORTO, player);
+    }
   }
 }

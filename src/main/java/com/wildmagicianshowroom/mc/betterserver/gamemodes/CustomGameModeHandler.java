@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class CustomGameModeHandler {
-  public static boolean setGameMode(CustomGameMode gameMode, Player player) {
+  public static void setGameMode(CustomGameMode gameMode, Player player) {
     Optional<CustomGameModesPredicate> optionalHandler;
     optionalHandler =
         Arrays.stream(CustomGameModesPredicate.values())
             .filter(predicate -> predicate.getGameMode().equals(gameMode))
             .findFirst();
-    if (!(optionalHandler.isPresent())) return false;
+    if (!(optionalHandler.isPresent())) return;
     CustomGameModesPredicate handler = optionalHandler.get();
-    return handler.test(player);
+    handler.test(player);
   }
 }
